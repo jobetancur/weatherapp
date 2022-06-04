@@ -98,7 +98,7 @@ body {
   }
   .leftdiv {
     background-image: url("https://images.unsplash.com/photo-1507035634975-f1a99b117331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fGJ1aWxkaW5nfGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=500&q=60");
-    width: 100%;
+    width: 50%;
     height: 90vh;
     border-radius: 10px 0px 0px 10px;
   }
@@ -113,11 +113,17 @@ body {
     color: white;
   }
   .rigthleft p {
-    font-size: 16px;
+    font-size: 14px;
     text-align: start;
     margin: 20px 20px;
   }
   .bg-leftdiv {
     margin: 20px 10px;
+  }
+  .leftdiv h3 {
+    font-size: 26px;
+  }
+  .rigthleft h2 {
+    font-size: 26px;
   }
 }
