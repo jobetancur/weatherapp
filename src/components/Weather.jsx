@@ -1,7 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowUpFromWaterPump, faCloud, faPumpMedical, faPumpSoap, faThermometer, faThermometer1, faThermometer2, faThermometer3, faThermometer4, faThermometerEmpty, faThermometerHalf, faTriangleExclamation, faWind } from '@fortawesome/free-solid-svg-icons'
 
 const Weather = () => {
 
@@ -59,7 +60,7 @@ const Weather = () => {
                 <p className='description'>{date}</p>
                 <img src={`https://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`} alt="" />
                 <p className='description'>{weather.weather?.[0].description}</p>
-                <p className='temperature'>{weather.main?.temp} {isBoolean ? '°F' : '°C'}</p>
+                <p className='temperature'><FontAwesomeIcon icon={faThermometerHalf}/> {weather.main?.temp} {isBoolean ? '°F' : '°C'}</p>
             </div>
             <div className='bg-button'>
                 <button className='button' onClick={() => { degreesF(); changeDegrees(); }} disabled={isBoolean? true : false} >Imperial °F, mph</button>
@@ -68,13 +69,13 @@ const Weather = () => {
         </div>
         <div className='rigthleft'>
             <h2>Weather App</h2>
-            <p><b>Feels like:</b>{weather.main?.feels_like} {isBoolean ? '°F' : '°C'}</p>
-            <p><b>Temperature MAX:</b>{weather.main?.temp_max} {isBoolean ? '°F' : '°C'}</p>
-            <p><b>Temperature MIN:</b>{weather.main?.temp_min} {isBoolean ? '°F' : '°C'}</p>
-            <p><b>Wind speed:</b> {weather.wind?.speed} {isBoolean ? 'miles/hour' : 'meter/sec'}</p>
-            <p><b>Clouds:</b> {weather.clouds?.all} %</p>
-            <p><b>Humidity:</b> {weather.main?.humidity} %</p>
-            <p><b>Pressure:</b> {weather.main?.pressure} hPa</p>
+            <p><FontAwesomeIcon icon={faThermometer}/> <b>Feels like:</b> {weather.main?.feels_like} {isBoolean ? '°F' : '°C'}</p>
+            <p><FontAwesomeIcon icon={faThermometer2}/> <b>Temperature MAX:</b> {weather.main?.temp_max} {isBoolean ? '°F' : '°C'}</p>
+            <p><FontAwesomeIcon icon={faThermometer1}/> <b>Temperature MIN:</b> {weather.main?.temp_min} {isBoolean ? '°F' : '°C'}</p>
+            <p><FontAwesomeIcon icon={faWind}/> <b>Wind speed:</b> {weather.wind?.speed} {isBoolean ? 'miles/hour' : 'meter/sec'}</p>
+            <p><FontAwesomeIcon icon={faCloud}/> <b>Clouds:</b> {weather.clouds?.all} %</p>
+            <p><FontAwesomeIcon icon={faArrowUpFromWaterPump}/> <b>Humidity:</b> {weather.main?.humidity} %</p>
+            <p><FontAwesomeIcon icon={faThermometer1}/> <b>Pressure:</b> {weather.main?.pressure} hPa</p>
         </div>
         
     </div>
