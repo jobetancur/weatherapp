@@ -9,6 +9,8 @@ const Weather = () => {
     const [isBoolean, setisBoolean] = useState(false)
     const changeDegrees = () => setisBoolean(!isBoolean)
 
+    let date = new Date().toDateString();
+
     let lon, lat
 
     useEffect(() => {
@@ -53,9 +55,10 @@ const Weather = () => {
         <div className='leftdiv'>
         <h3>{weather.name}, {weather.sys?.country}</h3>
             <div className='bg-leftdiv'>
+                <p className='description'>{date}</p>
                 <img src={`https://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`} alt="" />
-                <p><b>Weather conditions:</b> {weather.weather?.[0].description}</p>
-                <p><b>Temperature:</b> {weather.main?.temp} {isBoolean ? '°F' : '°C'}</p>
+                <p className='description'>{weather.weather?.[0].description}</p>
+                <p className='temperature'>{weather.main?.temp} {isBoolean ? '°F' : '°C'}</p>
             </div>
             <div className='bg-button'>
                 <button className='button' onClick={() => { degreesF(); changeDegrees(); }} disabled={isBoolean? true : false} >Imperial °F, mph</button>
@@ -69,6 +72,7 @@ const Weather = () => {
             <p><b>Temperature MIN:</b> {weather.main?.temp_min} {isBoolean ? '°F' : '°C'}</p>
             <p><b>Wind speed:</b> {weather.wind?.speed} {isBoolean ? 'miles/hour' : 'meter/sec'}</p>
             <p><b>Clouds:</b> {weather.clouds?.all} %</p>
+            <p><b>Humidity:</b> {weather.main?.humidity} %</p>
             <p><b>Pressure:</b> {weather.main?.pressure} hPa</p>
         </div>
         
