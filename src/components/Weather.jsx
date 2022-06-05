@@ -2,7 +2,8 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUpFromWaterPump, faCloud, faPumpMedical, faPumpSoap, faThermometer, faThermometer1, faThermometer2, faThermometer3, faThermometer4, faThermometerEmpty, faThermometerHalf, faTriangleExclamation, faWind } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUpFromWaterPump, faCloud, faThermometer, faThermometer1, faThermometer2, faThermometerHalf, faWind } from '@fortawesome/free-solid-svg-icons'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Weather = () => {
 
@@ -10,6 +11,7 @@ const Weather = () => {
     const [obj, setObj] = useState({})
     const [isBoolean, setisBoolean] = useState(false)
     const changeDegrees = () => setisBoolean(!isBoolean)
+    const [post, setPost] = useState(null)
 
     let date = new Date().toDateString();
 
@@ -63,8 +65,8 @@ const Weather = () => {
                 <p className='temperature'><FontAwesomeIcon icon={faThermometerHalf}/> {weather.main?.temp} {isBoolean ? '°F' : '°C'}</p>
             </div>
             <div className='bg-button'>
-                <button className='button' onClick={() => { degreesF(); changeDegrees(); }} disabled={isBoolean? true : false} >Imperial °F, mph</button>
-                <button className='button' onClick={() => { degreesC(); changeDegrees(); }} disabled={isBoolean? false : true}>Metric °C, m/s</button>
+                <button className='btn btn-primary' onClick={() => { degreesF(); changeDegrees(); }} disabled={isBoolean? true : false} >Imperial °F, mph</button>
+                <button className='btn btn-primary' onClick={() => { degreesC(); changeDegrees(); }} disabled={isBoolean? false : true}>Metric °C, m/s</button>
         </div>
         </div>
         <div className='rigthleft'>
