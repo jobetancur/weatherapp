@@ -70,7 +70,6 @@ const Weather = () => {
         </div>
         </div>
         <div className='rigthleft'>
-            <h2>Weather App</h2>
             <p><FontAwesomeIcon icon={faThermometer}/> <b>Feels like:</b> {weather.main?.feels_like} {isBoolean ? '°F' : '°C'}</p>
             <p><FontAwesomeIcon icon={faThermometer2}/> <b>Temperature MAX:</b> {weather.main?.temp_max} {isBoolean ? '°F' : '°C'}</p>
             <p><FontAwesomeIcon icon={faThermometer1}/> <b>Temperature MIN:</b> {weather.main?.temp_min} {isBoolean ? '°F' : '°C'}</p>

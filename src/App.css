@@ -16,7 +16,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 115px;
+  margin-bottom: 5.5%;
+}
+
+.principaldiv h2 {
+  margin-top: 20px;
+  margin-bottom: -20px;
+  color: white;
 }
 
 .App {
@@ -76,7 +82,7 @@ body {
   width: 60%;
   float: right;
   color: white;
-  
+  margin-top: 50px;
 }
 
 .rigthleft h2 {
