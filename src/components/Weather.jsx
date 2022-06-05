@@ -67,7 +67,7 @@ const Weather = () => {
             <div className='bg-button'>
                 <button className='btn btn-primary' onClick={() => { degreesF(); changeDegrees(); }} disabled={isBoolean? true : false} >Imperial °F, mph</button>
                 <button className='btn btn-primary' onClick={() => { degreesC(); changeDegrees(); }} disabled={isBoolean? false : true}>Metric °C, m/s</button>
-        </div>
+            </div>
         </div>
         <div className='rigthleft'>
             <p><FontAwesomeIcon icon={faThermometer}/> <b>Feels like:</b> {weather.main?.feels_like} {isBoolean ? '°F' : '°C'}</p>

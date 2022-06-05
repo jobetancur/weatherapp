@@ -7,7 +7,9 @@ function App() {
 
   return (
     <div className="principaldiv">
-      <h2>Weather App</h2>
+      <div className='tittle'>
+        <h2>Weather App</h2>
+      </div>
       <div className="App">
         <Weather />
       </div>

@@ -5,7 +5,8 @@
 
 body {
   /* background-color: #467fca; */
-  background: linear-gradient(to bottom right, rgb(23, 101, 202), rgb(23, 119, 175));
+  background-image: url("https://fv9-3.failiem.lv/thumb_show.php?i=nh2wf6c8c&view");
+  max-height: 100%;
 }
 
 .root {
@@ -19,18 +20,30 @@ body {
   margin-bottom: 5.5%;
 }
 
-.principaldiv h2 {
+.tittle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(48, 48, 48, 0.932);
+  width: 50%;
+  height: 60px;
   margin-top: 20px;
-  margin-bottom: -20px;
+}
+
+.principaldiv h2 {
+  margin-top: 0px;
   color: white;
+  font-size: 24px;
 }
 
 .App {
   margin: 0px 20px;
-  margin-top: 50px;
+  margin-top: 20px;
   border-radius: 10px;
   text-align: center;
-  background-color: rgba(48, 48, 48, 0.342);
+  background-color: rgba(48, 48, 48, 0.932);
   width: 70vw;
   box-shadow: 5px 5px 1px #4646461f;
 }
@@ -63,7 +76,7 @@ body {
 }
 
 .bg-leftdiv {
-  background: #434343a9;
+  background: rgba(48, 48, 48, 0.932);
   display: inline-block;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -80,7 +93,6 @@ body {
 
 .rigthleft {
   width: 60%;
-  float: right;
   color: white;
   margin-top: 50px;
 }
@@ -95,7 +107,7 @@ body {
 .rigthleft p {
   font-size: 22px;
   text-align: start;
-  margin: 15px 50px;
+  margin: 10px 50px;
 }
 
 .bg-button {
@@ -110,32 +122,65 @@ body {
   margin: 0px 5px;
 }
 
+@media (max-width: 1017px) {
+  .rigthleft p {
+    font-size: 22px;
+    text-align: start;
+    margin: 10px 20px;
+  }
+}
 
 @media (max-width: 994px) {
   .App {
     width: 95%;
     margin-top: 20px;
   }
+  .globaldiv {
+    display: flex;
+    flex-direction: column;
+  }
   .leftdiv {
-    background-image: url("https://images.unsplash.com/photo-1507035634975-f1a99b117331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fGJ1aWxkaW5nfGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=500&q=60");
-    width: 50%;
-    height: 90vh;
-    border-radius: 10px 0px 0px 10px;
+    background-image: url("https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+    width: 100%;
+    height: 400px;    
+    border-radius: 10px 10px 0px 0px;
+  }
+  .bg-leftdiv img {
+    margin-bottom: -20px;
+    margin-top: -30px;
+  }
+  .leftdiv p {
+    margin: 10px;
+    color: white;
+  }
+  .leftdiv h3 {
+    font-size: 36px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
+  .bg-leftdiv {
+    background: #434343a9;
+    display: inline-block;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 80%;
+  }
+  .description{
+    font-size: 22px;
+  }
+  .temperature{
+    font-size: 40px;
   }
   .rigthleft {
     width: 100%;
     float: right;
     color: white;
-  }
-  .leftdiv p {
-    font-size: 18px;
-    margin: 10px;
-    color: white;
+    margin-top: 5px;
   }
   .rigthleft p {
-    font-size: 14px;
+    font-size: 20px;
     text-align: start;
-    margin: 20px 20px;
+    margin: 15px 20px;
   }
   .bg-leftdiv {
     margin: 20px 10px;
