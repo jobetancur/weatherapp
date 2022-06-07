@@ -4,6 +4,7 @@ import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUpFromWaterPump, faCloud, faThermometer, faThermometer1, faThermometer2, faThermometerHalf, faWind } from '@fortawesome/free-solid-svg-icons'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Loader from './Loader'
 
 const Weather = () => {
 
@@ -11,7 +12,8 @@ const Weather = () => {
     const [obj, setObj] = useState({})
     const [isBoolean, setisBoolean] = useState(false)
     const changeDegrees = () => setisBoolean(!isBoolean)
-    const [post, setPost] = useState(null)
+    const [loading, setLoading] = useState(true)
+    
 
     let date = new Date().toDateString();
 
@@ -30,8 +32,11 @@ const Weather = () => {
     
     useEffect(() => {
         if(obj !== undefined){
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${obj?.lat}&lon=${obj?.lon}&appid=${API_key}&units=metric`)
-            .then(res => setWeather(res.data))
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${obj.lat}&lon=${obj.lon}&appid=${API_key}&units=metric`)
+            .then(res => {
+                setWeather(res.data)
+                setLoading(false)
+            })
             .catch(error => console.log(error))
         }
     }, [obj])
@@ -39,28 +44,31 @@ const Weather = () => {
     console.log(weather)
 
     const degreesF = () => {
-        if(weather !== `https://api.openweathermap.org/data/2.5/weather?lat=${obj?.lat}&lon=${obj?.lon}&appid=${API_key}&units=metric`){
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${obj?.lat}&lon=${obj?.lon}&appid=${API_key}&units=imperial`)
+        if(weather !== `https://api.openweathermap.org/data/2.5/weather?lat=${obj.lat}&lon=${obj.lon}&appid=${API_key}&units=metric`){
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${obj.lat}&lon=${obj.lon}&appid=${API_key}&units=imperial`)
             .then(res => setWeather(res.data))
             .catch(error => console.log(error))
         }
     }
 
     const degreesC = () => {
-        if(weather !== `https://api.openweathermap.org/data/2.5/weather?lat=${obj?.lat}&lon=${obj?.lon}&appid=${API_key}&units=imperial`){
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${obj?.lat}&lon=${obj?.lon}&appid=${API_key}&units=metric`)
+        if(weather !== `https://api.openweathermap.org/data/2.5/weather?lat=${obj.lat}&lon=${obj.lon}&appid=${API_key}&units=imperial`){
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${obj.lat}&lon=${obj.lon}&appid=${API_key}&units=metric`)
             .then(res => setWeather(res.data))
             .catch(error => console.log(error))
         }
     }
 
   return (
+    <div>
+        {
+        loading ? <Loader/> :
     <div className='globaldiv'>
         <div className='leftdiv'>
         <h3>{weather.name}, {weather.sys?.country}</h3>
             <div className='bg-leftdiv'>
                 <p className='description'>{date}</p>
-                <img src={`https://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`} alt="" />
+                <img src={`https://openweathermap.org/img/wn/${weather.weather?.[0].icon}@4x.png`} alt="" />
                 <p className='description'>{weather.weather?.[0].description}</p>
                 <p className='temperature'><FontAwesomeIcon icon={faThermometerHalf}/> {weather.main?.temp} {isBoolean ? '°F' : '°C'}</p>
             </div>
@@ -78,7 +86,8 @@ const Weather = () => {
             <p><FontAwesomeIcon icon={faArrowUpFromWaterPump}/> <b>Humidity:</b> {weather.main?.humidity} %</p>
             <p><FontAwesomeIcon icon={faThermometer1}/> <b>Pressure:</b> {weather.main?.pressure} hPa</p>
         </div>
-        
+    </div>
+    }
     </div>
   )
 }

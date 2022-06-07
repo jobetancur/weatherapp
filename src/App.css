@@ -61,7 +61,8 @@ body {
 }
 
 .bg-leftdiv img {
-  margin-bottom: -20px;
+  margin-top: -60px;
+  margin-bottom: -50px;
 }
 
 .leftdiv p {
@@ -146,8 +147,8 @@ body {
     border-radius: 10px 10px 0px 0px;
   }
   .bg-leftdiv img {
-    margin-bottom: -20px;
-    margin-top: -30px;
+    margin-top: -60px;
+    margin-bottom: -60px;
   }
   .leftdiv p {
     margin: 10px;
@@ -156,7 +157,7 @@ body {
   .leftdiv h3 {
     font-size: 36px;
     margin-top: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
   }
   .bg-leftdiv {
     background: #434343a9;
@@ -190,5 +191,8 @@ body {
   }
   .rigthleft h2 {
     font-size: 26px;
+  }
+  .bg-button {
+    margin-top: 0px;
   }
 }
